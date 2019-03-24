@@ -1,6 +1,19 @@
 .root {
     width: 100%;
+    display: flex;
 }
 .links {
     flex-grow: 1;
+}
+.address {
+    flex-grow: 2;
+}
+.buttons {
+    display: flex;
+}
+.add-button {
+    padding: 5px;
+}
+.profile-button {
+    padding: 5px;
 }
