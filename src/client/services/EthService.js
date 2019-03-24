@@ -1,5 +1,6 @@
 const Web3 = require('web3');
 const Eth = require('ethjs');
+const EthUtil = require('ethereumjs-util');
 
 const approveMetamask = async () => {
   if (window.ethereum) {
@@ -29,8 +30,23 @@ const getAccount = async () => {
   return accounts[0].toLowerCase();
 };
 
+const verifySignature = async () => {
+  const plainMsg = Buffer.from('Sign this message to log into BlogChain.');
+  const msg = `0x${plainMsg.toString('hex')}`;
+  const prefixedMsg = EthUtil.hashPersonalMessage(plainMsg);
+  const account = await getAccount();
+
+  const signature = await window.eth.personal_sign(msg, account);
+  const { v, r, s } = EthUtil.fromRpcSig(signature);
+  const pubKey = EthUtil.ecrecover(prefixedMsg, v, r, s);
+  const addressBuffer = EthUtil.pubToAddress(pubKey);
+  const returnedAccount = EthUtil.bufferToHex(addressBuffer);
+  return account === returnedAccount.toLowerCase();
+};
+
 
 export {
     approveMetamask,
     getAccount,
+    verifySignature,
   };

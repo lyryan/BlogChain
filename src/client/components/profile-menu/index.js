@@ -2,12 +2,17 @@ import React from 'react';
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { verifySignature } from '../../services/EthService';
 
 class ProfileMenu extends React.Component {
-  state = {
-    anchorEl: null,
-    auth: false,
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      anchorEl: null,
+      auth: false,
+    };
+  }
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -17,10 +22,23 @@ class ProfileMenu extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  toggleLogin = () => {
-    this.setState(prevState => ({
-      auth: !prevState.auth
-    }));
+  toggleLogin = async () => {
+    const { address } = this.props;
+    if (this.state.auth) {
+      if (this.state.auth) {
+        this.setState({
+          auth: false,
+        });
+      }
+    }
+    else if (address) {
+      const validSignature = await verifySignature();
+      if (validSignature) {
+        this.setState({
+          auth: true,
+        });
+      }
+    }
     this.handleClose();
   };
 
@@ -55,7 +73,7 @@ class ProfileMenu extends React.Component {
           onClose={this.handleClose}
         >
           <MenuItem onClick={this.handleClose} component={Profile}>My Profile</MenuItem>
-          <MenuItem onClick={this.toggleLogin}>{ !auth ? 'Login' : 'Logout'}</MenuItem>
+          <MenuItem onClick={this.toggleLogin}>{!auth ? 'Login' : 'Logout'}</MenuItem>
         </Menu>
       </div>
     );

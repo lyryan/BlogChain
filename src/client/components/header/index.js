@@ -8,6 +8,7 @@ import ProfileMenu from '../profile-menu';
 
 // Links
 const Home = props => <Link to="/home" {...props} />
+const NewStory = props => <Link to="/new-story" {...props} />
 
 const Header = ({ address }) => (
   <div className="root">
@@ -25,13 +26,13 @@ const Header = ({ address }) => (
         <div className="buttons">
           <div className="add-button">
             <Tooltip title="Add" aria-label="Add">
-              <Fab color="secondary" className="fab">
+              <Fab component={NewStory} color="secondary" className="fab">
                 <AddIcon color="inherit"/>
               </Fab>
             </Tooltip>
           </div>
           <div className="profile-button">
-            <ProfileMenu />
+            <ProfileMenu address={address} />
           </div>
         </div>
       </Toolbar>
