@@ -7,9 +7,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#FFFFFF" }, // Purple and green play nicely together.
-    secondary: { main: "#F1F1F1" } // This is just green.A700 as hex.
-  }
+    primary: { main: "#FFFFFF" },
+    secondary: { main: "#F1F1F1" }, 
+  },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 ReactDOM.render(

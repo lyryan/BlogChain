@@ -1,0 +1,6 @@
+.root {
+    width: 100%;
+}
+.links {
+    flex-grow: 1;
+}
