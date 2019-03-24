@@ -9,20 +9,31 @@ import ProfileMenu from '../profile-menu';
 // Links
 const Home = props => <Link to="/home" {...props} />
 
-const Header = () => (
+const Header = ({ address }) => (
   <div className="root">
     <AppBar color="primary" position="static">
       <Toolbar>
-          <Logo />
+          <div>
+            <Logo />
+          </div>
           <div className="links">
             <Button component={Home}>Home</Button>
           </div>
-        <Tooltip title="Add" aria-label="Add">
-          <Fab color="primary" className="fab">
-            <AddIcon />
-          </Fab>
-        </Tooltip>
-        <ProfileMenu />
+        <div className="address">
+          <h5>{address ? address : 'No account found, try using MetaMask!'}</h5>
+        </div>
+        <div className="buttons">
+          <div className="add-button">
+            <Tooltip title="Add" aria-label="Add">
+              <Fab color="secondary" className="fab">
+                <AddIcon color="inherit"/>
+              </Fab>
+            </Tooltip>
+          </div>
+          <div className="profile-button">
+            <ProfileMenu />
+          </div>
+        </div>
       </Toolbar>
     </AppBar>
   </div>
