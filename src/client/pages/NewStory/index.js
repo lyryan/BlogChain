@@ -1,7 +1,10 @@
 import React from 'react';
+import TextEditor from '../../components/new-story/TextEditor';
 
-const NewStory =  () => (
-    <h5>New Story</h5>
-);
-
-export default NewStory;
+const NewStory = () => (
+    <div className="main-content">
+      <TextEditor />
+    </div>
+  );
+  
+  export default NewStory;
