@@ -1,0 +1,129 @@
+.article-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article-title {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  padding-bottom: 20px;
+}
+
+.author {
+  display: flex;
+  padding-left: 500px;
+  padding-bottom: 30px;
+  font-style: italic;
+}
+
+.article-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 16pt;
+  line-height: 26pt;
+  padding-left: 400px;
+  padding-right: 400px;
+  padding-bottom: 50px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  padding-right: 100px;
+  padding-left: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+}
+
+.facebook-button {
+  width: 3px;
+}
+
+.facebook-icon {
+  cursor: pointer;
+}
+
+.facebook {
+  margin: 1px;
+  width: 10px;
+}
+
+.twitter {
+  width: 10px;
+}
+
+.twitter-button {
+  width: 6px;
+}
+
+.twitter-icon {
+  cursor: pointer;
+}
+
+.twitter {
+  margin: 1px;
+}
+
+.email {
+  width: 10px;
+}
+
+.email-button {
+  width: 6px;
+  cursor: pointer;
+}
+
+.author-body {
+  display: flex;
+}
+
+.publish-date {
+  padding-left: 200px;
+}
+
+.linkedin {
+  width: 10px;
+}
+
+.linkedin-button {
+  width: 6px;
+}
+
+.linkedin-icon {
+  cursor: pointer;
+}
+
+.article-list {
+  display: flex;
+  padding-left: 100px;
+}
+
+.list {
+  position: relative;
+  z-index: 0;
+}
+
+.bottom {
+  display: flex;
+  padding-left: 450px;
+  padding-top: 50px;
+  position: absolute;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  width: 200px;
+  height: 100px;
+}
+
+.copyright {
+  padding-top: 45px;
+}
+
+

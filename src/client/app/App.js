@@ -4,8 +4,12 @@ import Header from "../components/header";
 import { Route, Switch } from "react-router-dom";
 import NewStory from "../pages/NewStory";
 import Home from "../pages/Home";
+import Profile from "../pages/profile";
+import Article from "../pages/article"
 
-import { approveMetamask, getAccount } from '../services/EthService'; 
+import ArticleList from "../components/article-list";
+
+import { approveMetamask, getAccount } from '../services/EthService';
 
 class App extends Component {
 
@@ -26,10 +30,14 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="header">
         <Header address={this.state.address} />
+        </div>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/new-story" component={NewStory} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/article" component={Article} />
         </Switch>
       </React.Fragment>
     );
