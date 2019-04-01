@@ -7,14 +7,33 @@ import Zoom from 'react-reveal/Zoom';
 import Icon from '../../components/icons';
 import Bottom from '../../components/pageBottom';
 import ArticleList from '../../components/article-list';
+import CommentBox from '../../components/comment';
 import './index.css';
 
+var commentData = [
+    {
+        author:"Shawn Spencer",
+        text:"I've heard it both ways"
+    },
+    {
+        author:"Burton Guster",
+        text:"You hear about Pluto? That's messed up"
+    }
+];
+
+let title, author, date, text, tempTitle, tempAuthor, tempDate, tempText;
+
 class Article extends React.Component {
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
   render() {
+          title = this.props.location.state.title;
+          author = this.props.location.state.author;
+          date = this.props.location.state.date;
+          text = this.props.location.state.text;
     return (
       <Fragment>
         <div className="article-body">
@@ -27,17 +46,20 @@ class Article extends React.Component {
             </Zoom>
           </div>
           <h2 className="article-title">
-            <ArtTitle title={this.props.location.state.title} />
+            <ArtTitle title={title} />
           </h2>
-          <Author author={this.props.location.state.author} date={this.props.location.state.date} />
+          <Author author={author} date={date} />
           <div className="article-text">
-            <Text text={this.props.location.state.text} />
+            <Text text={text} />
           </div>
         </div>
-        <div className="list" >
-          <ArticleList className="article-list" />
-        </div>
-        <Bottom />
+         <div className="comment-box">
+           <CommentBox data={commentData} />
+         </div>
+         <div className="list" >
+            <ArticleList className="article-list" />
+          </div>
+          <Bottom />
       </Fragment>
     );
   }

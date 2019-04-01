@@ -1,10 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
 import React from 'react';
-// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardActionArea } from '@material-ui/core';
 import { CardImg } from 'reactstrap';
-// import Article from '../../pages/article';
 import './index.css';
 
 const articleData = [
@@ -41,10 +39,6 @@ const articleData = [
 ];
 
 class ArticleList extends React.Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
   render() {
     return (
         <Articles />

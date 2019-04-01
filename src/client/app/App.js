@@ -7,7 +7,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/profile";
 import Article from "../pages/article"
 
-import ArticleList from "../components/article-list";
+import CommentBox from "../components/comment";
 
 import { approveMetamask, getAccount } from '../services/EthService';
 
@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <div className="header">
-        <Header address={this.state.address} />
+          <Header address={this.state.address} />
         </div>
         <Switch>
           <Route exact path="/" component={Home} />
