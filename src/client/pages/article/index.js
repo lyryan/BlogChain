@@ -8,20 +8,12 @@ import Icon from '../../components/icons';
 import Bottom from '../../components/pageBottom';
 import ArticleList from '../../components/article-list';
 import CommentBox from '../../components/comment';
+import Map from '../../components/map';
 import './index.css';
 
-var commentData = [
-    {
-        author:"Shawn Spencer",
-        text:"I've heard it both ways"
-    },
-    {
-        author:"Burton Guster",
-        text:"You hear about Pluto? That's messed up"
-    }
-];
+var commentData = [];
 
-let title, author, date, text, tempTitle, tempAuthor, tempDate, tempText;
+let title, author, date, text, map;
 
 class Article extends React.Component {
 
@@ -34,6 +26,8 @@ class Article extends React.Component {
           author = this.props.location.state.author;
           date = this.props.location.state.date;
           text = this.props.location.state.text;
+          console.log("Title is " + title);
+          let comments = Map.get(title);
     return (
       <Fragment>
         <div className="article-body">
@@ -53,12 +47,13 @@ class Article extends React.Component {
             <Text text={text} />
           </div>
         </div>
-         <div className="comment-box">
-           <CommentBox data={commentData} />
-         </div>
-         <div className="list" >
+        <div className="comment-box">
+          <CommentBox data={comments} />
+       </div>
+        <div className="list" >
             <ArticleList className="article-list" />
           </div>
+          <button color="primary">Button</button>
           <Bottom />
       </Fragment>
     );

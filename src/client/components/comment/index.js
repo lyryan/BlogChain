@@ -3,6 +3,8 @@
 // import React from 'react';
 import './index.css';
 import { Link } from "react-router-dom";
+import Avatar from 'react-avatar';
+import { Button } from 'reactstrap';
 var React = require('react');
 var createReactClass = require('create-react-class');
 
@@ -16,6 +18,7 @@ var commentData = [
         text:"You hear about Pluto? That's messed up"
     }
 ];
+
 var CommentBox = createReactClass({
     getInitialState: function() {
         return {
@@ -64,17 +67,27 @@ var CommentForm = createReactClass({
         return;
     },
     render: function() {
+        let style = {
+            width: 100,
+        }
+        let textStyle = {
+            fontSize: 16,
+        }
         return(
             <form className="comment-form form-group" onSubmit={this.handleSubmit}>
-    <div className="input-group">
-            <span className="input-group-addon">Name</span>
-            <input type="text" placeholder="Your name" className="form-control" />
-            </div>
-            <div className="input-group">
-            <span className="input-group-addon">Comment</span>
-            <input type="text" placeholder="Say something..." className="form-control" />
-            </div>
-            <input type="submit" value="Post" className="btn btn-primary" />
+              <div className="input-group" style={style}>
+                <span className="input-group-name-addon">Name</span>
+                <input type="text" placeholder="Your name" className="name-form-control" />
+              </div>
+              <div className="input-group">
+                <span className="input-group-text-addon">Comment</span>
+                <div>
+                  <textarea className="textArea" type="text" placeholder="Join the discussion..."></textarea>
+                </div>
+              </div>
+              <div className="post">
+                <Button color="secondary" style={style} size="lg" type="submit" value="Post" className="btn btn-primary">Post</Button>
+              </div>
             </form>
     );
     }
@@ -82,10 +95,19 @@ var CommentForm = createReactClass({
 var Comment = createReactClass({
     render: function() {
         return (
+            <div>
             <div className="comment">
-            <h2 className="auth">{this.props.author}</h2>
-        {this.props.text}
-    </div>
+                  <div className="avatar">
+                    <Avatar size="30" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"/>
+                  </div>
+                <div >
+                  <h2 className="auth">{this.props.author}</h2>
+                </div>
+            </div>
+                <div className="commentText">
+                  {this.props.text}
+                </div>
+            </div>
     );
     }
 });

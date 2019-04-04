@@ -8,5 +8,71 @@
     margin: 10px 0;
 }
 
+.commentText {
+    padding-right: 400px;
+    padding-left: 40px;
+    padding-top: 0px;
+    font-size: 18px;
+    line-height: 18pt;
+}
+
+.comment {
+    display: flex;
+}
+
+.avatar {
+    padding-top: 20px;
+}
+
+.auth {
+    padding-left: 10px;
+    padding-bottom: 0px;
+}
+
+.name-form-control {
+    height: 20px;
+    font-size: 18px;
+}
+
+.post-form-control {
+    height: 100px;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-group-name-addon {
+    padding-right: 38px;
+    padding-top: 2px;
+    font-size: 20px;
+}
+
+.input-group-text-addon {
+    padding-right: 10px;
+    padding-top: 2px;
+    font-size: 20px;
+}
+
+.textArea {
+    height: 50px;
+    width: 300px;
+    font-size: 18px;
+}
+ .post {
+     padding-left: 295px;
+     font-size: 16px;
+ }
+
+ .btn btn-primary {
+     width: 150px;
+ }
+
+Button {
+    border:10;
+    line-height: 2.15;
+    cursor: pointer;
+    font-size: 16px;
+}
 
 

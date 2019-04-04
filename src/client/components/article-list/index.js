@@ -5,6 +5,7 @@ import { Card, CardContent, CardActionArea } from '@material-ui/core';
 import { CardImg } from 'reactstrap';
 import './index.css';
 
+const artData = require('../../pages/article/articleInfo');
 const articleData = [
   {
     title: 'Title1',
@@ -38,6 +39,8 @@ const articleData = [
   },
 ];
 
+let map = new Map();
+
 class ArticleList extends React.Component {
   render() {
     return (
@@ -66,10 +69,10 @@ function Articles() {
                 to={{
                   pathname: "/article/${articleData[i].title}",
                   state: {
-                    title: articleData[i].title,
-                    author: articleData[i].author,
-                    date: articleData[i].date,
-                    text: articleData[i].text,
+                    title: artData[i].title,
+                    author: artData[i].author,
+                    date: artData[i].date,
+                    text: artData[i].text,
                    }
                 }}
               >

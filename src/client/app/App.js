@@ -7,8 +7,6 @@ import Home from "../pages/Home";
 import Profile from "../pages/profile";
 import Article from "../pages/article"
 
-import CommentBox from "../components/comment";
-
 import { approveMetamask, getAccount } from '../services/EthService';
 
 class App extends Component {
