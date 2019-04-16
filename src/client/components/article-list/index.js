@@ -44,7 +44,7 @@ let map = new Map();
 class ArticleList extends React.Component {
   render() {
     return (
-        <Articles />
+        <Articles artTitle={this.props.title} />
     );
   }
 }
@@ -53,7 +53,7 @@ function reload() {
   window.scrollTo(0, 0);
 }
 
-function Articles() {
+function Articles(props) {
     const style = {
         textDecoration: null,
         color: 'black',
@@ -61,34 +61,41 @@ function Articles() {
   return (
     <div className="root" href="/article">
       <div className="child">
-        {articleData.map((article, i) => (
-          <Card key={article.title} className="article">
+        {artData.map(function(article, i) {
+        if(article.title !== props.artTitle) {
+        return (
+        <Card key = {article.title}
+          className = "article" >
             <CardActionArea>
               <Link
-                onClick={reload}
-                to={{
+                onClick = {reload}
+                to = {{
                   pathname: "/article/${articleData[i].title}",
-                  state: {
+                  state:
+                   {
                     title: artData[i].title,
-                    author: artData[i].author,
-                    date: artData[i].date,
-                    text: artData[i].text,
+                    author:
+                    artData[i].author,
+                    date:
+                    artData[i].date,
+                    text:
+                    artData[i].text,
                    }
-                }}
-              >
-              <CardImg top width="100%" height="90%" src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" />
-              <CardContent className="card-content">
-                <div className="art-title" style={style}>
+                }}>
+             <CardImg top width = "100%" height = "90%"
+               src = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" / >
+              <CardContent className = "card-content" >
+                <div className = "art-title" style = {style}>
                   {article.title}
                 </div>
-                <div className="art-author" style={style}>
+                <div className = "art-author" style = {style} >
                   {article.author}
                 </div>
               </CardContent>
-            </Link>
-          </CardActionArea>
-        </Card>
-        ))}
+            < /Link>
+          < /CardActionArea>
+        < /Card>
+        )}})}
       </div>
     </div>
   );

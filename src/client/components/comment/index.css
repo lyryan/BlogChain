@@ -76,3 +76,64 @@ Button {
 }
 
 
+.reply {
+    display: flex;
+    padding-left: 45px;
+    padding-top: 10px;
+}
+
+.reply-form {
+    padding-left: 42px;
+    padding-top: 20px;
+}
+
+.input {
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.name-form {
+    height: 20px;
+    font-size: 18px;
+}
+
+.reply-button {
+   height: 25px;
+    width: 50px;
+    font-size: 12px;
+    padding-bottom: 28px;
+}
+
+.reply-list-inner {
+    padding-left: 42px;
+}
+
+.lower-button {
+    padding-left: 345px;
+}
+
+.upvote {
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+.downvote {
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+.upCount {
+    padding-right: 5px;
+}
+
+.downCount {
+    padding-right: 5px;
+}
+
+.vote-box {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+
+

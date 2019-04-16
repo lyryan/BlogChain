@@ -57,6 +57,7 @@
     "react-router-dom": "^5.0.0",
     "react-share": "^2.4.0",
     "react-text-selection-popover": "^1.2.4",
+    "react-upvote": "0.0.2",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "slate": "^0.44.12",
