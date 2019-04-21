@@ -79,7 +79,7 @@ Button {
 .reply {
     display: flex;
     padding-left: 45px;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .reply-form {
@@ -109,7 +109,8 @@ Button {
 }
 
 .lower-button {
-    padding-left: 345px;
+    padding-left: 330px;
+    padding-top: 5px;
 }
 
 .upvote {
@@ -124,15 +125,26 @@ Button {
 
 .upCount {
     padding-right: 5px;
+    cursor: pointer;
 }
 
 .downCount {
     padding-right: 5px;
+    cursor: pointer;
 }
 
 .vote-box {
     display: flex;
     padding-bottom: 10px;
+}
+
+.vote-reply-box {
+    display: flex;
+    padding-top: 10px;
+}
+
+.reply-but {
+    padding-bottom: 20px;
 }
 
 

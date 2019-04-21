@@ -10,7 +10,6 @@ import ArticleList from '../../components/article-list';
 import CommentBox from '../../components/comment';
 import Map from '../../components/map';
 import './index.css';
-import ReplyBox from '../../components/reply';
 
 var commentData = [];
 

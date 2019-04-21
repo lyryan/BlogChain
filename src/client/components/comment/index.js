@@ -4,6 +4,7 @@ import './index.css';
 import { Link } from "react-router-dom";
 import Avatar from 'react-avatar';
 import { Button } from 'reactstrap';
+import But from '@material-ui/core/Button';
 
 var React = require('react');
 var createReactClass = require('create-react-class');
@@ -19,7 +20,7 @@ var CommentBox = createReactClass({
             replyD: this.props.replyD
         }
     },
-    handleCommentSubmit: function(comment, reply) {
+    handleCommentSubmit: function(comment) {
         this.props.data.push(comment);
         var comments = this.state.data;
         var newComments = comments.concat([comment]);
@@ -86,7 +87,7 @@ var CommentForm = createReactClass({
                 </div>
               </div>
               <div className="post">
-                <Button color="secondary" style={style} size="lg" type="submit" value="Post" className="btn btn-primary">Post</Button>
+                <But className="btn btn-primary" type="submit" value="Post"  style={style} >Post</But>
               </div>
             </form>
     );
@@ -99,19 +100,19 @@ var Comment = createReactClass({
         return (
             <div>
               <div className="comment">
-                  <div className="avatar">
-                    <Avatar size="30" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"/>
-                  </div>
-                <div >
+                <div className="avatar">
+                  <Avatar size="30" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"/>
+                </div>
+                <div>
                   <h2 className="auth">{this.props.author}</h2>
                 </div>
               </div>
-                <div className="commentText">
-                  {this.props.text}
-                </div>
-                <ReplyBox data={[]} replyD={[]} />
-        </div>
-    );
+              <div className="commentText">
+                {this.props.text}
+              </div>
+              <ReplyBox data={[]} replyD={[]} />
+            </div>
+      );
     }
 });
 
@@ -158,78 +159,81 @@ var ReplyBox = createReactClass({
     },
 
     render: function() {
-        console.log("Hello");
         if((this.state.reply && this.state.replyBox) || (!this.state.reply && !this.state.replyBox)) {
-            console.log(1);
             return (
                 <div className="reply-form">
                   <div className="vote-box">
-                    <div className="upCount">
+                    <div className="upCount" onClick={this.handleUpvote}>
                       {this.state.up}
                     </div>
                     <div title="Upvote">
                       <svg className="upvote" onClick={this.handleUpvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
                     </div>
-                    <div className="downCount">
+                    <div className="downCount" onClick={this.handleDownvote}>
                       {this.state.down}
                     </div>
                     <div title="Downvote">
                       <svg className="downvote" onClick={this.handleDownvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
                     </div>
                   </div>
-                  <ReplyForm data={this.props.data} replyD={this.props.replyD} changeBoxState={this.changeBoxState} onCommentSubmit={this.handleReplySubmit}/ >
-                  <ReplyList data={this.props.data} replyD={this.props.replyD} />
+                  <ReplyForm data={this.state.data} replyD={this.state.replyD} changeBoxState={this.changeBoxState} onCommentSubmit={this.handleReplySubmit}/ >
+                  <ReplyList data={this.state.data} replyD={this.state.replyD} />
               </div>
         );
         }
         else if(!this.state.reply && this.state.replyBox) {
-            console.log("Hi");
             return (
-                <div className ="reply">
-                  <div className="upCount">
-                    {this.state.up}
+                <div>
+                  <div className="reply">
+                    <div className="vote-reply-box">
+                      <div className="upCount" onClick={this.handleUpvote}>
+                        {this.state.up}
+                      </div>
+                      <div title="Upvote">
+                        <svg className="upvote" onClick={this.handleUpvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
+                      </div>
+                      <div className="downCount" onClick={this.handleDownvote}>
+                        {this.state.down}
+                      </div>
+                      <div title="Downvote">
+                        <svg className="downvote" onClick={this.handleDownvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
+                      </div>
+                    </div>
+                    <But className="reply" onClick = {this.changeReplyState}
+                      size = "lg"
+                      type = "submit"
+                      value = "Post"
+                      >Reply</But>
                   </div>
-                  <div title="Upvote">
-                    <svg className="upvote" onClick={this.handleUpvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
+                  <div className="reply-list-inner">
+                    <ReplyList data={this.state.data} replyD={this.state.replyD}/>
                   </div>
-                  <div className="downCount">
-                    {this.state.down}
-                  </div>
-                  <div title="Downvote">
-                    <svg className="downvote" onClick={this.handleDownvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
-                  </div>
-                  <button className="reply" onClick = {this.changeReplyState}
-                    color = "secondary"
-                    size = "lg"
-                    type = "submit"
-                    value = "Post"
-                    className = "reply-button">Reply</button>
-                  <ReplyList data={this.props.data} replyD={this.props.replyD}/>
                 </div>
         );
         }
 
         else if(!this.state.replyBox) {
-            console.log("Hey");
             return (
                 <div>
                   <div className ="reply">
-                    <div className="upCount">
-                      {this.state.up}
+                    <div className="vote-reply-box">
+                      <div className="upCount" onClick={this.handleUpvote}>
+                        {this.state.up}
+                       </div>
+                       <div title="Upvote">
+                         <svg className="upvote" onClick={this.handleUpvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
+                       </div>
+                       <div className="downCount" onClick={this.handleDownvote}>
+                         {this.state.down}
+                       </div>
+                       <div title="Downvote">
+                         <svg className="downvote" onClick={this.handleDownvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
+                       </div>
                      </div>
-                     <div title="Upvote">
-                       <svg className="upvote" onClick={this.handleUpvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
-                     </div>
-                     <div className="downCount">
-                       {this.state.down}
-                     </div>
-                     <div title="Downvote">
-                       <svg className="downvote" onClick={this.handleDownvote} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
-                     </div>
-                     <button className="reply-button" onClick = {this.changeReplyState} color="secondary" size = "lg" type = "submit" value = "Post">Reply</button>
+                     <But onClick = {this.changeReplyState} size = "lg" type = "submit" value = "Post">Reply</But>
                    </div>
                    <div className = "reply-list-inner" >
-                     <ReplyList data={this.props.data} replyD={this.props.replyD}/>
+                     <ReplyList data={this.state.data} replyD={this.state.replyD}/>
                    </div>
                  </div>
         );
@@ -272,7 +276,7 @@ var ReplyForm = createReactClass({
                 </div>
               </div>
               <div className="lower-button">
-                <button color="primary" size="sm" type="submit" value="Reply" className="reply-button">Reply</button>
+                <But size="sm" type="submit" value="Reply">Reply</But>
               </div>
             </form>
     );
@@ -281,8 +285,6 @@ var ReplyForm = createReactClass({
 
 var ReplyList = createReactClass({
     render: function() {
-        console.log("Type is " + typeof this.props === 'undefined');
-        console.log("Hello");
         return (
             <div className="comment-list">
             {this.props.data.map(function(c){
@@ -297,7 +299,6 @@ var ReplyList = createReactClass({
 
 var Reply = createReactClass({
     render: function() {
-        var l = [];
         return (
             <div>
               <div className="comment">
