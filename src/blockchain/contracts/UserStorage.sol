@@ -4,6 +4,7 @@ contract UserStorage {
   struct User {
     uint articleCount;
     bool accountCreated;
+    string[] articles;
   }
 
   event newUserAdded(address newUser);
