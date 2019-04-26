@@ -1,7 +1,11 @@
 import React from 'react';
+import ArticleList from '../../components/article-list';
 
 const Home =  () => (
-    <h5>Home</h5>
+    <div>
+      <h5>Home</h5>
+      <ArticleList />
+    </div>
 );
 
 export default Home;

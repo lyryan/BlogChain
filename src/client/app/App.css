@@ -23,6 +23,13 @@
   color: #61dafb;
 }
 
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 400;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,3 +38,4 @@
     transform: rotate(360deg);
   }
 }
+

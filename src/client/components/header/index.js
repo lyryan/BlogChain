@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Tooltip, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ProfileMenu from '../profile-menu';
+import SearchBar from 'material-ui-search-bar';
 
 // Links
 const Home = props => <Link to="/home" {...props} />
@@ -12,7 +13,7 @@ const NewStory = props => <Link to="/new-story" {...props} />
 
 const Header = ({ address }) => (
   <div className="root">
-    <AppBar color="primary" position="static">
+    <AppBar className="head" color="primary" position="static">
       <Toolbar>
           <div>
             <Logo />
@@ -22,6 +23,16 @@ const Header = ({ address }) => (
           </div>
         <div className="address">
           <h5>{address ? address : 'No account found, try using MetaMask!'}</h5>
+        </div>
+        <div className="search-bar">
+        <SearchBar
+          onChange={() => console.log('onChange')}
+          onRequestSearch={() => console.log('onRequestSearch')}
+          style={{
+            margin: '0 auto',
+            maxWidth: 800
+           }}
+          />
         </div>
         <div className="buttons">
           <div className="add-button">

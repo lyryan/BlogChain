@@ -1,0 +1,191 @@
+#app {
+    padding: 20px;
+}
+.comment-form {
+    width: 500px;
+}
+.comment-form .input-group {
+    margin: 10px 0;
+}
+
+.commentText {
+    padding-right: 400px;
+    padding-left: 40px;
+    padding-top: 0px;
+    font-size: 18px;
+    line-height: 18pt;
+}
+
+.comment {
+    display: flex;
+}
+
+.avatar {
+    padding-top: 20px;
+}
+
+.auth {
+    padding-left: 10px;
+    padding-bottom: 0px;
+}
+
+.name-form-control {
+    height: 20px;
+    font-size: 18px;
+}
+
+.post-form-control {
+    height: 100px;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-group-name-addon {
+    padding-right: 38px;
+    padding-top: 2px;
+    font-size: 20px;
+}
+
+.input-group-text-addon {
+    padding-right: 10px;
+    padding-top: 2px;
+    font-size: 20px;
+}
+
+.textArea {
+    height: 50px;
+    width: 300px;
+    font-size: 18px;
+}
+ .post {
+     padding-left: 295px;
+     padding-top: 10px;
+     font-size: 16px;
+ }
+
+ .btn btn-primary {
+     width: 150px;
+ }
+
+Button {
+    border:10;
+    line-height: 2.15;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.reply {
+    display: flex;
+    padding-left: 45px;
+    padding-top: 5px;
+}
+
+.reply-form {
+    padding-left: 42px;
+    padding-top: 20px;
+}
+
+.input {
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.name-form {
+    height: 20px;
+    font-size: 18px;
+}
+
+.reply-button {
+   height: 25px;
+    width: 50px;
+    font-size: 12px;
+    padding-bottom: 28px;
+}
+
+.reply-list-inner {
+    padding-left: 42px;
+}
+
+.lower-button {
+    padding-left: 330px;
+    padding-top: 5px;
+}
+
+.upvote {
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+.downvote {
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+.upCount {
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.downCount {
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.vote-box {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.vote-reply-box {
+    display: flex;
+    padding-top: 10px;
+}
+
+.reply-but {
+    padding-bottom: 20px;
+}
+
+
+
+
+
+form {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-right: 540px;
+}
+
+.form-reply {
+    padding-left: 320px;
+    padding-top: 10px;
+}
+
+textarea {
+    height: 200px;
+    padding-top: 10px;
+}
+
+input,
+textarea {
+    display: block;
+    width: 87%;
+    border: 0;
+    padding: 10px 5px;
+    background: white no-repeat;
+    background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+input:focus,
+textarea:focus{
+    /* sizes for the 2 images (focus state) */
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
+
