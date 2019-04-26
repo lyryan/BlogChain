@@ -75,20 +75,12 @@ var CommentForm = createReactClass({
             width: 3,
         }
         return(
-            <form className="comment-form form-group" onSubmit={this.handleSubmit}>
-              <div className="input-group" style={style}>
-                <span className="input-group-name-addon">Name</span>
-                <input type="text" placeholder="Your name" className="name-form-control" />
-              </div>
-              <div className="input-group">
-                <span className="input-group-text-addon">Comment</span>
-                <div>
-                  <textarea className="textArea" type="text" placeholder="Join the discussion..."></textarea>
-                </div>
-              </div>
-              <div className="post">
-                <But className="btn btn-primary" type="submit" value="Post"  style={style} >Post</But>
-              </div>
+            <form onSubmit={this.handleSubmit}>
+            <input placeholder="Name" type="text"/>
+            <textarea placeholder="Join the discussion..."></textarea>
+            <div className="post">
+            <But className="btn btn-primary" type="submit" value="Post"  style={style} >Post</But>
+            </div>
             </form>
     );
     }
@@ -265,19 +257,11 @@ var ReplyForm = createReactClass({
         }
         return(
             <form onSubmit={this.handleSubmit}>
-              <div className="input" style={style}>
-                <span className="input-group-name-addon">Name</span>
-                <input type="text" placeholder="Your name" className="name-form" />
-              </div>
-              <div className="input-group">
-                <span className="input-group-text-addon">Comment</span>
-                <div>
-                  <textarea className="textArea" type="text" placeholder="Reply..."></textarea>
-                </div>
-              </div>
-              <div className="lower-button">
-                <But size="sm" type="submit" value="Reply">Reply</But>
-              </div>
+            <input placeholder="Name" type="text"/>
+            <textarea placeholder="Join the discussion..."></textarea>
+            <div className="form-reply">
+            <But className="btn btn-primary" type="submit" value="Post"  style={style} >Reply</But>
+            </div>
             </form>
     );
     }
