@@ -37,8 +37,8 @@ const Header = ({ address }) => (
         <div className="buttons">
           <div className="add-button">
             <Tooltip title="Add" aria-label="Add">
-              <Fab component={NewStory} color="secondary" className="fab">
-                <AddIcon color="inherit"/>
+              <Fab component={NewStory} size="small" color="secondary" className="fab">
+                <AddIcon color="primary" />
               </Fab>
             </Tooltip>
           </div>
