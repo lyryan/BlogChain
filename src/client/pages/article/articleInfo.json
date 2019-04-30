@@ -1,30 +1,30 @@
          [
             {  
-              "title": "Title1",
+              "title": "Article 1",
               "author": "Author1",
               "date": "Date1",
               "text": "Sample text for article 1"
             },
             {
-              "title": "Title2",
+              "title": "Article 2",
               "author": "Author2",
               "date": "Date2",
               "text": "Sample text for article 2"
            },
            {
-              "title": "Title3",
+              "title": "Title 3",
               "author": "Author3",
               "date": "Date3",
               "text": "Sample text for article 3"
           },
           {
-              "title": "Title4",
+              "title": "Title 4",
               "author": "Author4",
               "date": "Date4",
               "text": "Sample text for article 4"
           },
           {
-              "title": "Title5",
+              "title": "Title 5",
               "author": "Author5",
               "date": "Date5",
               "text": "Sample text for article 5"

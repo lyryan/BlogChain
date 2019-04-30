@@ -5,15 +5,24 @@ import { Route, Switch } from "react-router-dom";
 import NewStory from "../pages/NewStory";
 import Home from "../pages/Home";
 import Profile from "../pages/profile";
-import Article from "../pages/article"
+import Article from "../pages/article";
+import Search from "../pages/search";
 
 import { approveMetamask, getAccount } from '../services/EthService';
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {address: null};
+    this.state = {
+                  address: null,
+                  posts: []
+                  };
+
+      fetch('http://localhost:3300/comments')
+          .then(response => response.json())
+          .then(response => this.setState({ posts: response.data} ))
+          .catch(err => console.log(err));
   }
 
   async componentDidMount() {
@@ -36,6 +45,7 @@ class App extends Component {
           <Route path="/new-story" component={NewStory} />
           <Route path="/profile" component={Profile} />
           <Route path="/article" component={Article} />
+          <Route path="/search" component={Search} />
         </Switch>
       </React.Fragment>
     );

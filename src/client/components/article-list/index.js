@@ -49,56 +49,84 @@ class ArticleList extends React.Component {
   }
 }
 
+function getArticles() {
+
+}
+
 function reload() {
   window.scrollTo(0, 0);
 }
 
-function Articles(props) {
-    const style = {
+class Articles extends React.Component {
+   constructor(props) {
+       super(props);
+       this.state = {
+           articles: []
+       }
+       fetch('http://localhost:3300/comments')
+           .then(response => response.json())
+           .then(response => this.setState({ articles: response.data} ))
+           .catch(err => console.log(err));
+   }
+
+   render() {
+   const style = {
         textDecoration: null,
-        color: 'black',
-    }
-  return (
-    <div className="root" href="/article">
-      <div className="child">
-        {artData.map(function(article, i) {
-        if(article.title !== props.artTitle) {
+        color: 'black',}
+        const ar = this.props.artTitle;
+        const state = this.state.articles;
         return (
-        <Card key = {article.title}
-          className = "article" >
-            <CardActionArea>
-              <Link
-                onClick = {reload}
-                to = {{
-                  pathname: "/article/${articleData[i].title}",
-                  state:
-                   {
-                    title: artData[i].title,
-                    author:
-                    artData[i].author,
-                    date:
-                    artData[i].date,
-                    text:
-                    artData[i].text,
-                   }
-                }}>
-             <CardImg top width = "100%" height = "90%"
-               src = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" / >
-              <CardContent className = "card-content" >
-                <div className = "art-title" style = {style}>
-                  {article.title}
-                </div>
-                <div className = "art-author" style = {style} >
-                  {article.author}
-                </div>
-              </CardContent>
-            < /Link>
-          < /CardActionArea>
-        < /Card>
-        )}})}
-      </div>
-    </div>
-  );
+            <div
+            className = "root"
+            href = "/article" >
+             <div className = "child" >
+                {state.map(function (article, i) {
+                    if (article.title !== ar) {
+                        return (
+                            <Card
+                            key = {article.title}
+                            className = "article" >
+                            <CardActionArea >
+                            <Link
+                              onClick = {reload}
+                              to = {{
+                               pathname: "/article/${articleData[i].title}",
+                               state: {title: article.title,
+                               author: article.author,
+                               date: article.date,
+                               text: article.text,
+                            }
+                        }
+                    }>
+                    <CardImg
+                        top
+                        width = "100%"
+                        height = "90%"
+                        src = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" / >
+                            <CardContent
+                        className="card-content" >
+                            <div
+                        className = "art-title"
+                        style = {style} >
+                            {article.title}
+                    </div>
+                        <div
+                        className = "art-author"
+                        style = {style} >
+                            {article.author}
+                    </div>
+                        </CardContent>
+                        </Link>
+                        </CardActionArea>
+                        </Card>
+                    )
+                    }
+                })
+        }
+        </div>
+            </div>
+        );
+     }
 }
 
 export default ArticleList;

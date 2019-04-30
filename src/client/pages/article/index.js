@@ -27,6 +27,8 @@ class Article extends React.Component {
           date = this.props.location.state.date;
           text = this.props.location.state.text;
           let comments = Map.get(title);
+          console.log(title);
+          console.log(typeof comments === "undefined");
     return (
       <Fragment>
         <div className="article-body">
@@ -46,10 +48,10 @@ class Article extends React.Component {
             <Text text={text} />
           </div>
         </div>
-        <div className="comment-box">
-          <CommentBox data={comments} replyD={[]}/>
-       </div>
-        <div className="list" >
+          <div className="comment-box">
+              <CommentBox data={comments} replyD={[]}/>
+          </div>
+          <div className="list" >
             <ArticleList className="article-list" title={title}/>
           </div>
           <Bottom />

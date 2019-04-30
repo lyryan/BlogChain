@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+.child {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.article {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.MuiCard-root-1 {
+  width: 300px;
+  height: 300px;
+}
+
+.card-content {
+  font-size: 22px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.art-title {
+  font-size: 26px;
+}
+
+.art-author {
+  font-size: 16px;
+}
+
+
