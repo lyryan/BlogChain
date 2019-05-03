@@ -1,3 +1,5 @@
+import UserStorage from '../../blockchain/build/contracts/UserStorage.json';
+
 const Web3 = require('web3');
 const Eth = require('ethjs');
 const EthUtil = require('ethereumjs-util');
@@ -21,6 +23,15 @@ const approveMetamask = async () => {
     console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
   }
 };
+
+const getContractInstance = async() => {
+  const networkId = await window.web3.eth.net.getId();
+  const deployedNetwork = UserStorage.networks[networkId];
+  return new window.web3.eth.Contract(
+    UserStorage.abi,
+    deployedNetwork && deployedNetwork.address,
+  );
+}
 
 const getAccount = async () => {
   const accounts = await window.web3.eth.getAccounts();
@@ -49,4 +60,5 @@ export {
     approveMetamask,
     getAccount,
     verifySignature,
+    getContractInstance,
   };

@@ -19,6 +19,7 @@ import { ic_code } from 'react-icons-kit/md/ic_code';
 import { ic_format_underlined } from 'react-icons-kit/md/ic_format_underlined';
 import { ic_text_fields } from 'react-icons-kit/md/ic_text_fields';
 import Popover from 'react-text-selection-popover';
+import AddArticle from '../add-article';
 
 const initialValue = Value.fromJSON({
   document: {
@@ -203,6 +204,7 @@ export default class TextEditor extends React.Component {
           spellCheck
           renderNode={this.renderNode}
         />
+        <AddArticle article={this.state.value}/>
       </Fragment>
     );
   }

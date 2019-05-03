@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import NewStory from "../pages/NewStory";
 import Home from "../pages/Home";
 
-import { approveMetamask, getAccount } from '../services/EthService'; 
+import { approveMetamask, getAccount, getContractInstance } from '../services/EthService'; 
 
 class App extends Component {
 
@@ -17,7 +17,10 @@ class App extends Component {
   async componentDidMount() {
     try {
       await approveMetamask();
-      this.setState({ address: await getAccount() });
+      this.setState({ 
+        address: await getAccount(), 
+        contract: await getContractInstance(),
+      });
     } catch (err) {
       // Error approving metamask
     }
@@ -26,10 +29,10 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header address={this.state.address} />
+        <Header address={this.state.address}/>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/new-story" component={NewStory} />
+          <Route path="/new-story" component={NewStory}/>
         </Switch>
       </React.Fragment>
     );

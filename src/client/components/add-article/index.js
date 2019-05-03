@@ -3,6 +3,8 @@ import { Tooltip, IconButton } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import ipfs from '../../services/ipfs';
 
+import { getContractInstance, getAccount } from '../../services/EthService';
+
 class AddArticle extends React.Component {
   constructor(props) {
     super(props);
@@ -12,9 +14,18 @@ class AddArticle extends React.Component {
     }
   }
 
+  async componentDidMount() {
+    this.setState({
+      contract: await getContractInstance(),
+      account: await getAccount(),
+    });
+  }
+
   onSubmit = async () => {
     const result = await ipfs.add(Buffer.from(JSON.stringify(this.state.article)));
     this.setState({ ipfsHash: result[0]['hash'] });
+    const response = await this.state.contract.methods.addArticle(this.state.ipfsHash).send({from: this.state.account});
+    console.log(response);
 
   }
 

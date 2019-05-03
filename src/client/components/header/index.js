@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ProfileMenu from '../profile-menu';
 
 // Links
-const Home = props => <Link to="/home" {...props} />
+const Home = props => <Link to="/" {...props} />
 const NewStory = props => <Link to="/new-story" {...props} />
 
 const Header = ({ address }) => (
@@ -32,7 +32,7 @@ const Header = ({ address }) => (
             </Tooltip>
           </div>
           <div className="profile-button">
-            <ProfileMenu address={address} />
+            <ProfileMenu address={address}/>
           </div>
         </div>
       </Toolbar>
