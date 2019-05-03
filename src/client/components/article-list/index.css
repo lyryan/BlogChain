@@ -1,7 +1,6 @@
 .root {
   display: flex;
   justify-content: center;
-  margin: 0 20px;
 }
 
 .child {
