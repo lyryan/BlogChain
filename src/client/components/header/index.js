@@ -41,7 +41,7 @@ class Header extends React.Component {
                     <Button component={Home}>Home</Button>
                   </div>
                   <div className="address">
-                    <h5>{this.state.address ? this.state.address : 'No account found, try using MetaMask!'}</h5>
+                    <h5>{this.props.address ? this.props.address : 'No account found, try using MetaMask!'}</h5>
                   </div>
                   <div className="search-bar">
                     <SearchBar onChange={(value) => {this.setState({searchValue: value})}}
