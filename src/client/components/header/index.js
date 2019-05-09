@@ -1,43 +1,75 @@
 import './index.css';
 import React from 'react';
 import Logo from '../../assets/logo';
-import { Link } from 'react-router-dom';
+import { Link, Router, Route, Redirect, withRouter } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Tooltip, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ProfileMenu from '../profile-menu';
+import SearchBar from 'material-ui-search-bar';
+import Search from "../../pages/search"
 
 // Links
 const Home = props => <Link to="/" {...props} />
 const NewStory = props => <Link to="/new-story" {...props} />
 
-const Header = ({ address }) => (
-  <div className="root">
-    <AppBar color="primary" position="static">
-      <Toolbar>
-          <div>
-            <Logo />
-          </div>
-          <div className="links">
-            <Button component={Home}>Home</Button>
-          </div>
-        <div className="address">
-          <h5>{address ? address : 'No account found, try using MetaMask!'}</h5>
-        </div>
-        <div className="buttons">
-          <div className="add-button">
-            <Tooltip title="Add" aria-label="Add">
-              <Fab component={NewStory} color="secondary" className="fab">
-                <AddIcon color="inherit"/>
-              </Fab>
-            </Tooltip>
-          </div>
-          <div className="profile-button">
-            <ProfileMenu address={address}/>
-          </div>
-        </div>
-      </Toolbar>
-    </AppBar>
-  </div>
-);
+class Header extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        searchValue: "",
+        address: this.props.address,
+      }
+      console.log(this.props);
+    }
 
-export default (Header);
+    handleSearch() {
+       this.setState({
+           searchValue: ''
+       });
+       this.props.history.push({
+           pathname: "/search",
+           search: this.state.searchValue
+       });
+    }
+
+    render() {
+        return (
+            <div className="root">
+              <AppBar className="head" color="primary" position="static">
+                <Toolbar>
+                  <div>
+                    <Logo />
+                  </div>
+                  <div className="links">
+                    <Button component={Home}>Home</Button>
+                  </div>
+                  <div className="address">
+                    <h5>{this.state.address ? this.state.address : 'No account found, try using MetaMask!'}</h5>
+                  </div>
+                  <div className="search-bar">
+                    <SearchBar onChange={(value) => {this.setState({searchValue: value})}}
+                      onRequestSearch={() => this.handleSearch()}
+                      style={{ margin: '0 auto', maxWidth:800}} />
+                  </div>
+                  <div className="buttons">
+                    <div className="add-button">
+                      <Tooltip title="Add" aria-label="Add">
+                        <Fab component={NewStory} size="small"
+                          color="secondary"
+                          className="fab">
+                          <AddIcon color="primary" />
+                        </Fab>
+                      </Tooltip>
+                    </div>
+                    <div className="profile-button">
+                      <ProfileMenu address = {this.state.address} />
+                   </div>
+                 </div>
+               </Toolbar>
+             </AppBar>
+           </div>
+         );
+    }
+}
+
+export default withRouter(Header);

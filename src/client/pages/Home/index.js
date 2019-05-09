@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
-import GetArticle from '../../components/get-article';
+import React from 'react';
+import ArticleList from '../../components/article-list';
+
 
 const Home =  () => (
-    <Fragment>
-        <h5>Home</h5>
-        <GetArticle/>
-    </Fragment>
-
+    <div>
+      <h5>Home</h5>
+      <ArticleList />
+      <GetArticle/>
+    </div>
 );
 
 export default Home;

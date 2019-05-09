@@ -20,42 +20,46 @@ import { ic_format_underlined } from 'react-icons-kit/md/ic_format_underlined';
 import { ic_text_fields } from 'react-icons-kit/md/ic_text_fields';
 import Popover from 'react-text-selection-popover';
 import AddArticle from '../add-article';
+import './TextEditor.css';
 
-const initialValue = Value.fromJSON({
-  document: {
-    nodes: [
-      {
-        object: 'block',
-        type: 'title',
-        nodes: [
-          {
-            object: 'text',
-            leaves: [
-              {
-                text: ''
-              }
-            ]
-          }
-        ]
-      },
-      {
-        object: 'block',
-        type: 'paragraph',
-        nodes: [
-          {
-            object: 'text',
-            leaves: [
-              {
-                text:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-              }
-            ]
-          }
-        ]
-      }
-    ]
+const existingValue = JSON.parse(localStorage.getItem('content'))
+const initialValue = Value.fromJSON(
+   existingValue || {
+    document: {
+      nodes: [
+        {
+          object: 'block',
+          type: 'title',
+          nodes: [
+            {
+              object: 'text',
+              leaves: [
+                {
+                  text: 'title'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          object: 'block',
+          type: 'paragraph',
+          nodes: [
+            {
+              object: 'text',
+              leaves: [
+                {
+                  text:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
-});
+);
 
 function MarkHotKey(options) {
   // Grab options from the ones passed in
@@ -113,6 +117,11 @@ export default class TextEditor extends React.Component {
   }
 
   onChange = ({ value }) => {
+    // Check to see if the document has changed before saving.
+    if (value.document != this.state.value.document) {
+    const content = JSON.stringify(value.toJSON())
+    localStorage.setItem('content', content)
+    }
     this.setState({ value });
   };
 
