@@ -1,10 +1,7 @@
 import React from 'react';
-import TextEditor from '../../components/new-story/TextEditor';
+import TextEditor from '../../components/text-editor';
 
 const NewStory = () => (
-    <div className="main-content">
-      <TextEditor />
-    </div>
+      <TextEditor/>
   );
-  
-  export default NewStory;
+export default NewStory;

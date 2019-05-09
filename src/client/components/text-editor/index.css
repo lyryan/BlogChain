@@ -1,0 +1,11 @@
+.editor-container {
+    padding: 0em 20em 20em 20em;
+    font-family: 'Times New Roman', serif;
+    /* margin: 5em; */
+}
+.editors {
+    border-bottom: 1px black solid;
+    padding: 1em;
+    margin: 1em;
+    font-size: 90%;
+  }
