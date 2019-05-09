@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleList from '../../components/article-list';
+import GetArticle from '../../components/get-article';
 
 
 const Home =  () => (
