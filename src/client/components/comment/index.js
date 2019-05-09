@@ -9,10 +9,11 @@ import But from '@material-ui/core/Button';
 var React = require('react');
 var createReactClass = require('create-react-class');
 
-var commentData = [];
-
 var replyData = [];
 
+/*
+ * Component for rendering comments to an article
+*/
 var CommentBox = createReactClass({
     getInitialState: function() {
         return {
@@ -35,6 +36,10 @@ var CommentBox = createReactClass({
     );
     }
 });
+
+/*
+ * Component rendering the list of comments
+*/
 var CommentList = createReactClass({
     render: function() {
         var ar = this.props.data;
