@@ -14,10 +14,12 @@ const NewStory = props => <Link to="/new-story" {...props} />
 
 class Header extends React.Component {
     constructor(props) {
-            super(props);
-            this.state = {
-                    searchValue: "",
-            }
+      super(props);
+      this.state = {
+        searchValue: "",
+        address: this.props.address,
+      }
+      console.log(this.props);
     }
 
     handleSearch() {
@@ -30,7 +32,7 @@ class Header extends React.Component {
        });
     }
 
-    render(address) {
+    render() {
         return (
             <div className="root">
               <AppBar className="head" color="primary" position="static">
@@ -42,7 +44,7 @@ class Header extends React.Component {
                     <Button component={Home}>Home</Button>
                   </div>
                   <div className="address">
-                    <h5>{address ? address : 'No account found, try using MetaMask!'}</h5>
+                    <h5>{this.state.address ? this.state.address : 'No account found, try using MetaMask!'}</h5>
                   </div>
                   <div className="search-bar">
                     <SearchBar onChange={(value) => {this.setState({searchValue: value})}}
@@ -60,7 +62,7 @@ class Header extends React.Component {
                       </Tooltip>
                     </div>
                     <div className="profile-button">
-                      <ProfileMenu address = {address} />
+                      <ProfileMenu address = {this.state.address} />
                    </div>
                  </div>
                </Toolbar>

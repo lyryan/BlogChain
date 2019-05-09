@@ -15,14 +15,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-                  address: null,
-                  posts: []
-                  };
+      address: null,
+      posts: []
+    };
 
-      fetch('http://localhost:3300/comments')
-          .then(response => response.json())
-          .then(response => this.setState({ posts: response.data} ))
-          .catch(err => console.log(err));
+    fetch('http://localhost:3300/comments')
+        .then(response => response.json())
+        .then(response => this.setState({ posts: response.data} ))
+        .catch(err => console.log(err));
   }
 
   async componentDidMount() {
