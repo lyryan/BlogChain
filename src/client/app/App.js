@@ -29,6 +29,7 @@ class App extends React.Component {
     try {
       await approveMetamask();
       this.setState({ address: await getAccount() });
+      console.log(this.state.address)
     } catch (err) {
       // Error approving metamask
     }

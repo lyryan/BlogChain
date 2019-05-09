@@ -1,15 +1,14 @@
 import './index.css';
 import React from 'react';
 import Logo from '../../assets/logo';
-import { Link, Router, Route, Redirect, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Tooltip, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ProfileMenu from '../profile-menu';
 import SearchBar from 'material-ui-search-bar';
-import Search from "../../pages/search"
 
 // Links
-const Home = props => <Link to="/home" {...props} />
+const Home = props => <Link to="/" {...props} />
 const NewStory = props => <Link to="/new-story" {...props} />
 
 class Header extends React.Component {
@@ -17,9 +16,7 @@ class Header extends React.Component {
       super(props);
       this.state = {
         searchValue: "",
-        address: this.props.address,
       }
-      console.log(this.props);
     }
 
     handleSearch() {

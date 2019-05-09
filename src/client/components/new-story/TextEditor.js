@@ -20,6 +20,7 @@ import { ic_format_underlined } from 'react-icons-kit/md/ic_format_underlined';
 import { ic_text_fields } from 'react-icons-kit/md/ic_text_fields';
 import Popover from 'react-text-selection-popover';
 import './TextEditor.css';
+import Submit from '../submit';
 
 const existingValue = JSON.parse(localStorage.getItem('content'))
 const initialValue = Value.fromJSON(
@@ -212,6 +213,7 @@ export default class TextEditor extends React.Component {
           spellCheck
           renderNode={this.renderNode}
         />
+        <Submit article={this.state.value}/>
       </Fragment>
     );
   }
