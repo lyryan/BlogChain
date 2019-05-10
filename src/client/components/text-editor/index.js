@@ -66,15 +66,17 @@ class TextEditor extends React.Component {
     return (
       <div>
         <div className="editor-container">
-            <div>
+          <div className="editors">
+            <h1>
                 <TextField
                 id="standard-name"
                 label="Title"
                 margin="normal"
                 onChange={this.handleChange('title')}
+                multiline
                 />
-            </div>
-            <div>
+            </h1>
+            <body>
                 <TextField
                 id="standard-textarea"
                 placeholder="Share your story..."
@@ -83,6 +85,7 @@ class TextEditor extends React.Component {
                 fullWidth
                 onChange={this.handleChange('body')}
                 />
+            </body>
             </div>
             <div>
               <Tooltip title="Post">
