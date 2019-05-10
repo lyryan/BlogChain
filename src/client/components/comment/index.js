@@ -1,9 +1,7 @@
 /* eslint-disable react/destructuring-assignment,class-methods-use-this */
 
 import './index.css';
-import { Link } from "react-router-dom";
 import Avatar from 'react-avatar';
-import { Button } from 'reactstrap';
 import But from '@material-ui/core/Button';
 
 var React = require('react');
@@ -74,11 +72,6 @@ var CommentForm = createReactClass({
         let style = {
             width: 100,
         }
-        let textStyle = {
-            fontSize: 10,
-            height: 30,
-            width: 3,
-        }
         return(
             <form onSubmit={this.handleSubmit}>
             <input placeholder="Name" type="text"/>
@@ -93,7 +86,6 @@ var CommentForm = createReactClass({
 var Comment = createReactClass({
 
     render: function() {
-        var replyData = [];
         return (
             <div>
               <div className="comment">
@@ -256,9 +248,6 @@ var ReplyForm = createReactClass({
     render: function() {
         let style = {
             width: 50,
-        }
-        let textStyle = {
-            fontSize: 12,
         }
         return(
             <form onSubmit={this.handleSubmit}>
