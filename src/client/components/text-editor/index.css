@@ -9,3 +9,10 @@
     margin: 1em;
     font-size: 90%;
   }
+.dialog-text {
+    padding: 0em 2em 0em 2em;
+}
+
+.dialog-title {
+    padding-left: 0.5em;
+}

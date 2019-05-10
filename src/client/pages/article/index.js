@@ -1,34 +1,40 @@
 /* eslint-disable react/jsx-one-expression-per-line,react/destructuring-assignment,react/prefer-stateless-function,max-len,react/no-find-dom-node */
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-// import { Button } from 'reactstrap';
 import Zoom from 'react-reveal/Zoom';
 import Icon from '../../components/icons';
 import Bottom from '../../components/pageBottom';
 import ArticleList from '../../components/article-list';
 import CommentBox from '../../components/comment';
 import Map from '../../components/map';
+import ipfs from '../../services/ipfs';
 import './index.css';
-
-var commentData = [];
-
-let title, author, date, text, map;
 
 class Article extends React.Component {
 
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      body: '',
+      author: '',
+    };
+  }
+
+  async componentDidMount() {
     window.scrollTo(0, 0);
+
+    const response = await ipfs.get(this.props.location.search.substr(2));
+    const article = JSON.parse(response[0].content.toString());
+
+    this.setState({
+      title: article.title,
+      body: article.body,
+      author: article.author,
+    });
   }
 
   render() {
-          title = this.props.location.state.title;
-          author = this.props.location.state.author;
-          date = this.props.location.state.date;
-          text = this.props.location.state.text;
-          let comments = Map.get(title);
-          console.log(title);
-          console.log(typeof comments === "undefined");
     return (
       <Fragment>
         <div className="article-body">
@@ -41,18 +47,15 @@ class Article extends React.Component {
             </Zoom>
           </div>
           <h2 className="article-title">
-            <ArtTitle title={title} />
+            <ArtTitle title={this.state.title} />
           </h2>
-          <Author author={author} date={date} />
+          <Author author={this.state.author}/>
           <div className="article-text">
-            <Text text={text} />
+            <Text body={this.state.body} />
           </div>
         </div>
           <div className="comment-box">
-              <CommentBox data={comments} replyD={[]}/>
-          </div>
-          <div className="list" >
-            <ArticleList className="article-list" title={title}/>
+              <CommentBox data={[]} replyD={[]}/>
           </div>
           <Bottom />
       </Fragment>
@@ -82,10 +85,9 @@ function Author(props) {
 }
 
 function Text(props) {
-//  return 'Hello hheufhiuf dfkwhforf feuf1erhuifi rjgpeorgjerg wewqgqy jfbrguhrug fehwfoiwef jvruvhru9g4  4iugb45ugbu458 g45ygb458gyb5 45ugb458g5bg 45gb548g4bg5458g gygfyufguyf dufgweuyfg uweyfgweyufgeuyf efuefheyfgweyf weufewyfu euwfbewuy ufewyuf ufeyfgewyfgew ydgeyfgwe7fg eu  fgewyfgwey ufeyfgew0fgew';
   return (
     <div>
-      {props.text}
+      {props.body}
     </div>
   );
 }

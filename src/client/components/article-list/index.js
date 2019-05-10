@@ -5,16 +5,10 @@ import { Card, CardContent, CardActionArea } from '@material-ui/core';
 import { CardImg } from 'reactstrap';
 import './index.css';
 
-const artData = require('../../pages/article/articleInfo');
 
-/*
- * ArticleList component renders the list of articles on a page
-*/
 class ArticleList extends React.Component {
   render() {
-    return (
-        <Articles artTitle={this.props.title} />
-    );
+    return(<Articles articles={this.props.articles}/>);
   }
 }
 
@@ -32,20 +26,17 @@ class Articles extends React.Component {
    constructor(props) {
        super(props);
        this.state = {
-           articles: []
+           articles: [],
        }
-       fetch('http://localhost:3300/comments')
-           .then(response => response.json())
-           .then(response => this.setState({ articles: response.data} ))
-           .catch(err => console.log(err));
    }
    /* Use Material UI Card to render all information about an article*/
    render() {
-   const style = {
+    const style = {
         textDecoration: null,
-        color: 'black',}
+        color: 'black',
+    }
         const ar = this.props.artTitle;
-        const state = this.state.articles;
+        const state = this.props.articles;
         return (
             <div
             className = "root"
@@ -59,14 +50,9 @@ class Articles extends React.Component {
                             <CardActionArea>
                             <Link onClick = {reload}
                               to={{
-                               pathname: "/article/${articleData[i].title}",
-                               state: {title: article.title,
-                               author: article.author,
-                               date: article.date,
-                               text: article.text,
-                            }
-                          }
-                        }>
+                                pathname: "/article",
+                                search: `?=${article.hash}`,
+                              }}>
                     <CardImg
                         top
                         width = "100%"

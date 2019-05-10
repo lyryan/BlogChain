@@ -18,7 +18,7 @@ contract UserStorage {
       users[msg.sender].articleCount++;
       users[msg.sender].articles.push(hash);
   }
-  function getArticle(uint index) public view returns(string memory) {
-      return users[msg.sender].articles[index];
+  function getArticle(address user, uint index) public view returns(string memory) {
+      return users[user].articles[index];
   }
 }
