@@ -6,6 +6,7 @@ import './index.css';
 
 import ipfs from '../../services/ipfs';
 import { getContractInstance, getAccount } from '../../services/EthService';
+import { FullscreenExit } from '@material-ui/icons';
 
 class TextEditor extends React.Component {
 
@@ -87,7 +88,7 @@ class TextEditor extends React.Component {
                 />
             </body>
             </div>
-            <div>
+            <div style={{display: 'flex', alignItems: 'flex-end'}}>
               <Tooltip title="Post">
                 <IconButton onClick={this.onSubmit}>
                   <SendIcon />
