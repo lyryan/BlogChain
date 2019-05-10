@@ -1,12 +1,9 @@
-/* eslint-disable react/jsx-one-expression-per-line,react/destructuring-assignment,react/prefer-stateless-function,max-len,react/no-find-dom-node */
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Zoom from 'react-reveal/Zoom';
 import Icon from '../../components/icons';
 import Bottom from '../../components/pageBottom';
-import ArticleList from '../../components/article-list';
 import CommentBox from '../../components/comment';
-import Map from '../../components/map';
 import ipfs from '../../services/ipfs';
 import './index.css';
 
