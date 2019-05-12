@@ -14,9 +14,8 @@ class Profile extends React.Component {
       articleCount: 0,
     };
   }
-
+  //Get articles from IPFS & Eth
   async componentDidMount() {
-    //Get articles from IPFS & Eth
     this.setState({
       contract: await getContractInstance(),
       account: await getAccount(),
@@ -32,12 +31,11 @@ class Profile extends React.Component {
       const article = await ipfs.get(articleHash);
       const articleObject = JSON.parse(article[0].content.toString());
       articleObject["hash"] = articleHash;
-      this.setState({ articles: [...this.state.articles, articleObject] })
-      
+      this.setState({ articles: [...this.state.articles, articleObject] })     
     }
-
   }
-
+ 
+  // render the list of articles
   render() {
     return (
     <div className="list">
