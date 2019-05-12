@@ -1,12 +1,12 @@
-/* eslint-disable react/destructuring-assignment,class-methods-use-this */
-
 import React from 'react';
-// import { SocialIcon } from 'react-social-icons';
 import {
   FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, EmailShareButton, EmailIcon,
   LinkedinShareButton, LinkedinIcon,
 } from 'react-share';
 
+/*
+ * Component rendering social media icons rendered on the read article page
+ */
 const Icon = () => (
   <div className="icons">
     <div className="email" title="Email article" href="#">
