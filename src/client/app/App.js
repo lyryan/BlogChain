@@ -10,6 +10,9 @@ import Search from "../pages/search";
 
 import { approveMetamask, getAccount } from '../services/EthService';
 
+/*
+ * Main application components setting routes and handling log in
+ */
 class App extends React.Component {
 
   constructor(props) {
@@ -29,6 +32,9 @@ class App extends React.Component {
     }
   }
 
+  /*
+ *  Render the Header component and set up routes
+ */
   render() {
     return (
       <React.Fragment>
