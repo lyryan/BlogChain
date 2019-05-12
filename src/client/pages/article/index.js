@@ -7,8 +7,11 @@ import CommentBox from '../../components/comment';
 import ipfs from '../../services/ipfs';
 import './index.css';
 
+/*
+ * This component renders a page for reading a posted article. 
+ * It also provides functionality for sharing articles on social media
+*/
 class Article extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
