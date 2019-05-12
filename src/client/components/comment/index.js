@@ -25,6 +25,8 @@ var CommentBox = createReactClass({
         var newComments = comments.concat([comment]);
         this.setState({data: newComments});
     },
+    
+    // render both the comment form and comments on an article
     render: function() {
         return (
             <div className="comment-box">
@@ -39,6 +41,7 @@ var CommentBox = createReactClass({
  * Component rendering the list of comments
 */
 var CommentList = createReactClass({
+    // render a list of comments on an article
     render: function() {
         var ar = this.props.data;
         return (
@@ -49,7 +52,7 @@ var CommentList = createReactClass({
                     <Comment author={c.author} text={c.text} data={ar} replyD={c.replyD}/>
                  </div>
             );
-            })}
+         })}
     </div>
     );
     }
@@ -72,6 +75,7 @@ var CommentForm = createReactClass({
         return;
     },
 
+    // render the comment form (all fields and a submit button)
     render: function() {
         let style = {
             width: 100,
@@ -92,6 +96,7 @@ var CommentForm = createReactClass({
  * Component for rendering each individual comment
 */
 var Comment = createReactClass({
+    // render each individual comment
     render: function() {
         return (
             <div>
@@ -126,6 +131,10 @@ var ReplyBox = createReactClass({
             down: 0,
         }
     },
+    
+    /* handle reply submit and display reply component according to the changed state 
+     * (eg: display reply form and comments, display reply button only, etc)
+    */
     handleReplySubmit: function(comment) {
         this.props.data.push(comment);
         var comments = this.state.data;
@@ -261,6 +270,7 @@ var ReplyForm = createReactClass({
         return;
     },
 
+    // render the reply form including all reply fields and reply button
     render: function() {
         let style = {
             width: 50,
@@ -281,6 +291,7 @@ var ReplyForm = createReactClass({
  * Component rendering the list of replies
  */
 var ReplyList = createReactClass({
+    // render the list of replies to a comment
     render: function() {
         return (
             <div className="comment-list">
@@ -298,6 +309,7 @@ var ReplyList = createReactClass({
  * Component rendering each individual reply
  */
 var Reply = createReactClass({
+    // render each individual reply
     render: function() {
         return (
             <div>
