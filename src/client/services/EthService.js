@@ -1,3 +1,7 @@
+/*
+* This is a service for running the methods that interact with the Ethereum blockchain through Web3
+*/
+
 import UserStorage from '../../blockchain/build/contracts/UserStorage.json';
 
 const Web3 = require('web3');
