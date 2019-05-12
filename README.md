@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+What you need before starting:
 
-## Available Scripts
+	1. Install node 
+		https://nodejs.org/en/
 
-In the project directory, you can run:
+	2. Install Truffle and Ganache 
 
-### `npm start`
+		https://truffleframework.com/truffle
+		https://truffleframework.com/ganache
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+	3. Install IPFS to run a development node. Follow the installation instructions 	and then use the second link for basic usage to initialize your workspace.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+		https://docs.ipfs.io/introduction/install/
 
-### `npm test`
+		https://docs.ipfs.io/introduction/usage/
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+	4. Install MetaMask as a Chrome extension. You will need to start ganache so you 	can add one of the test accounts into MetaMask. Click on MetaMask, Click the 		circle in top right corner, click "import account", copy and paste one of the 		private keys from Ganache to import that account.
+			
+		https://metamask.io/
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To run the project for test purposes:
+	
+	1. Start Ganache.
+	2. Open a terminal to the directory of the source files.
+	3. Navigate to /src/blockchain/
+	4. Run "truffle migrate" in your terminal to navigate smart contracts to Ganache.
+	5. Open a second terminal and run "ipfs daemon" to start your IPFS node.
+	6. Open a third terminal to the directory of the source files and run "npm start"
+	7. Open Chrome to localhost:3000 to see the app.
+	8. Look to the middle of the screen to see that your address is there.
+	9. Click the green "plus" button in the top right to add an article.
+	10. Enter Title, name (optional), and text.
+	11. Click the arrow to submit.
+	12. MetaMask will prompt you to make a payment to post your article.
+	13. Next, click on the profile icon in the top right to go to your profile.
+	14. You can see that your article has been posted.
+	15. Click on the article card to be taken to the read article page.
+	16. You have the option to share your article on social medias on the left.
+	
+If you have any problems configuring your environment. Feel free to contact.
+	joshua.gendein@sjsu.edu
