@@ -5,7 +5,9 @@ import { Card, CardContent, CardActionArea } from '@material-ui/core';
 import { CardImg } from 'reactstrap';
 import './index.css';
 
-
+/*
+ * This component renders a list of articles on a number of application pages
+*/
 class ArticleList extends React.Component {
   render() {
     return(<Articles articles={this.props.articles}/>);
