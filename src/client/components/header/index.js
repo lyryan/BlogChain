@@ -22,6 +22,7 @@ class Header extends React.Component {
       }
     }
 
+    // function envoked when a user searches for an article by author name
     handleSearch() {
        this.setState({
            searchValue: ''
@@ -31,7 +32,8 @@ class Header extends React.Component {
            search: this.state.searchValue
        });
     }
-
+ 
+    // render all header components present in the application's header
     render() {
         return (
             <div className="root">
