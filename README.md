@@ -8,13 +8,13 @@ What you need before starting:
 		https://truffleframework.com/truffle
 		https://truffleframework.com/ganache
 
-	3. Install IPFS to run a development node. Follow the installation instructions 	and then use the second link for basic usage to initialize your workspace.
+	3. Install IPFS to run a development node. Follow the installation instructions and then use the second link for basic usage to initialize your workspace.
 
 		https://docs.ipfs.io/introduction/install/
 
 		https://docs.ipfs.io/introduction/usage/
 
-	4. Install MetaMask as a Chrome extension. You will need to start ganache so you 	can add one of the test accounts into MetaMask. Click on MetaMask, Click the 		circle in top right corner, click "import account", copy and paste one of the 		private keys from Ganache to import that account.
+	4. Install MetaMask as a Chrome extension. You will need to start ganache so you can add one of the test accounts into MetaMask. Click on MetaMask, Click the circle in top right corner, click "import account", copy and paste one of the private keys from Ganache to import that account.
 			
 		https://metamask.io/
 
