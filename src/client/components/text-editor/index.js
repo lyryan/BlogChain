@@ -3,13 +3,14 @@ import { TextField, Tooltip, IconButton, Dialog, DialogTitle, DialogActions, But
 import SendIcon from '@material-ui/icons/Send';
 import { withRouter } from 'react-router-dom';
 import './index.css';
-
 import ipfs from '../../services/ipfs';
 import { getContractInstance, getAccount } from '../../services/EthService';
 import { addToDB } from '../../services/BackendServce';
 
+/*
+ * Component rendering article submission form on the New Story page
+*/
 class TextEditor extends React.Component {
-
   state = {
     title: '',
     body: '',
