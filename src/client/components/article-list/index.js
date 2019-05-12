@@ -34,7 +34,7 @@ class Articles extends React.Component {
     const style = {
         textDecoration: null,
         color: 'black',
-    }
+        }
         const ar = this.props.artTitle;
         const state = this.props.articles;
         return (
@@ -53,22 +53,22 @@ class Articles extends React.Component {
                                 pathname: "/article",
                                 search: `?=${article.hash}`,
                               }}>
-                    <CardImg
-                        top
-                        width = "100%"
-                        height = "90%"
-                         / >
-                            <CardContent
-                              className="card-content" >
-                             <div className = "art-title"
-                               style={style}>
-                               {article.title}
-                             </div>
-                             <div className = "art-author"
-                                style={style}>
-                                {article.author}
-                            </div>
-                        </CardContent>
+                             <CardImg
+                               top
+                               width = "100%"
+                               height = "90%"
+                             />
+                             <CardContent
+                                className="card-content" >
+                                <div className = "art-title"
+                                  style={style}>
+                                  {article.title}
+                                </div>
+                                <div className = "art-author"
+                                  style={style}>
+                                  {article.author}
+                                </div>
+                          </CardContent>
                       </Link>
                     </CardActionArea>
                   </Card>
