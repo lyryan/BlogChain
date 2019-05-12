@@ -57,7 +57,7 @@ class Articles extends React.Component {
                         top
                         width = "100%"
                         height = "90%"
-                        src = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" / >
+                         / >
                             <CardContent
                               className="card-content" >
                              <div className = "art-title"

@@ -18,11 +18,6 @@ class App extends React.Component {
       address: null,
       posts: []
     };
-
-    fetch('http://localhost:3300/comments')
-        .then(response => response.json())
-        .then(response => this.setState({ posts: response.data} ))
-        .catch(err => console.log(err));
   }
 
   async componentDidMount() {

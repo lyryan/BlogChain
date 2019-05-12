@@ -35,9 +35,6 @@ class Article extends React.Component {
     return (
       <Fragment>
         <div className="article-body">
-          <Helmet>
-            <style>{'body { background-color: azure; }'}</style>
-          </Helmet>
           <div className="icons">
             <Zoom left>
               <Icon />
@@ -51,9 +48,6 @@ class Article extends React.Component {
             <Text body={this.state.body} />
           </div>
         </div>
-          <div className="comment-box">
-              <CommentBox data={[]} replyD={[]}/>
-          </div>
           <Bottom />
       </Fragment>
     );
@@ -73,9 +67,6 @@ function Author(props) {
     <div className="author-body">
       <div className="author">
         by {props.author}
-      </div>
-      <div className="publish-date">
-        Published on {props.date}
       </div>
     </div>
   );
