@@ -11,6 +11,9 @@ import SearchBar from 'material-ui-search-bar';
 const Home = props => <Link to="/" {...props} />
 const NewStory = props => <Link to="/new-story" {...props} />
 
+/*
+ * Component that renders the header of the application
+*/
 class Header extends React.Component {
     constructor(props) {
       super(props);
