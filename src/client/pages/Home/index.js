@@ -11,7 +11,8 @@ class Home extends React.Component {
       articles: [],
     }
   }
-
+  
+  // fetch article information from database
   async componentDidMount() {
     fetch(`http://localhost:3030/getall`).then((response) => response.json())
         .then((responseData) => {
@@ -21,6 +22,7 @@ class Home extends React.Component {
 
   }
 
+  // render the list of articles
   render() {
     return(
       <ArticleList articles={this.state.articles}/>
