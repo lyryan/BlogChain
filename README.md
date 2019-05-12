@@ -19,6 +19,7 @@ What you need before starting:
 		https://metamask.io/
 
 To run the project for test purposes:
+
 	1. Start Ganache.
 	2. Open a terminal to the directory of the source files.
 	3. Run "npm install"
