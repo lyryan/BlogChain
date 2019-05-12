@@ -1,11 +1,12 @@
 import React from 'react';
 import ArticleList from '../../components/article-list';
-
 import ipfs from '../../services/ipfs';
 import { getContractInstance, getAccount } from '../../services/EthService';
 
+/*
+ * Component rendering the profile page showing the list of articles published by a particular author
+*/
 class Profile extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
