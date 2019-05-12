@@ -21,6 +21,7 @@ class Article extends React.Component {
     };
   }
 
+  // scroll to the top of the page on each reload
   async componentDidMount() {
     window.scrollTo(0, 0);
 
@@ -33,7 +34,8 @@ class Article extends React.Component {
       author: article.author,
     });
   }
-
+  
+  // render article author, article text and social media icons for sharing articles
   render() {
     return (
       <Fragment>
@@ -57,6 +59,7 @@ class Article extends React.Component {
   }
 }
 
+// component returning the title of an article
 function ArtTitle(props) {
   return (
     <div>
@@ -65,6 +68,7 @@ function ArtTitle(props) {
   );
 }
 
+// component returning the author of an article
 function Author(props) {
   return (
     <div className="author-body">
@@ -75,6 +79,7 @@ function Author(props) {
   );
 }
 
+// component returning the body of an article
 function Text(props) {
   return (
     <div>
