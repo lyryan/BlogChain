@@ -1,7 +1,9 @@
 import React from 'react';
 import ArticleList from '../../components/article-list';
 
-
+/*
+ * This component renders the home page of the application
+*/
 class Home extends React.Component {
   constructor(props) {
     super(props);
