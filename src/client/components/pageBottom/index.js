@@ -1,6 +1,9 @@
 import React from 'react';
 import Logo from '../../assets/logo';
 
+/*
+ * Component rendering the bottom part of the page (BlogChain logo and copyright information)
+*/
 const Bottom = () => (
   <div className="bottom">
     <div className="logo">
