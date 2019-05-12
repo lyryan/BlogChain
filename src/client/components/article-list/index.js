@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardActionArea } from '@material-ui/core';
