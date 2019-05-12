@@ -16,6 +16,7 @@ class Submit extends React.Component {
     }
   }
 
+  // await response from blockchain
   async componentDidMount() {
     this.setState({
       contract: await getContractInstance(),
@@ -23,6 +24,7 @@ class Submit extends React.Component {
     });
   }
 
+  // handle the submission to blockchain and IPFS
   onSubmit = async () => {
     const result = await ipfs.add(Buffer.from(JSON.stringify(this.state.article)));
     this.setState({ ipfsHash: result[0]['hash'] });
@@ -31,6 +33,7 @@ class Submit extends React.Component {
 
   }
 
+  // render the Submit button
   render() {
     return (
       <Fragment>
