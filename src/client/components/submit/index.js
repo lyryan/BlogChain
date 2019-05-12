@@ -2,9 +2,11 @@ import React, { Fragment } from 'react';
 import { Tooltip, IconButton } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import ipfs from '../../services/ipfs';
-
 import { getContractInstance, getAccount } from '../../services/EthService';
 
+/*
+ * Components rendering the Submit button on the New Story page
+*/
 class Submit extends React.Component {
   constructor(props) {
     super(props);
