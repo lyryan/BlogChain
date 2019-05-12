@@ -21,11 +21,13 @@ class TextEditor extends React.Component {
     dialogTitle: '',
   };
 
+  // closes the dialog box and redirects user to the Home page
   handleClose = () => {
     this.setState({ open: false });
     this.props.history.push("/");
   };
 
+  // get the contract and the account
   async componentDidMount() {
     this.setState({
       contract: await getContractInstance(),
@@ -33,6 +35,7 @@ class TextEditor extends React.Component {
     });
   }
 
+  // formats the article and posts it to IPFS and gets the hash and posts it to blockchain
   onSubmit = async () => {
     const article = {};
     article.title = this.state.title;
@@ -73,11 +76,13 @@ class TextEditor extends React.Component {
     addToDB(article);
 
   }
-
+  
+  // accepts input from user
   handleChange = key => event => {
     this.setState({ [key]: event.target.value });
   };
-
+ 
+  // renders the text editor component
   render() {
     return (
       <div>
