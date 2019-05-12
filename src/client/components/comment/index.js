@@ -54,6 +54,10 @@ var CommentList = createReactClass({
     );
     }
 });
+
+/*
+ * Component for rendering the comment form
+*/
 var CommentForm = createReactClass({
     handleSubmit: function(e) {
         e.preventDefault();
@@ -74,17 +78,20 @@ var CommentForm = createReactClass({
         }
         return(
             <form onSubmit={this.handleSubmit}>
-            <input placeholder="Name" type="text"/>
-            <textarea placeholder="Join the discussion..."></textarea>
-            <div className="post">
-            <But className="btn btn-primary" type="submit" value="Post"  style={style} >Post</But>
-            </div>
+              <input placeholder="Name" type="text"/>
+              <textarea placeholder="Join the discussion..."></textarea>
+              <div className="post">
+                <But className="btn btn-primary" type="submit" value="Post"  style={style} >Post</But>
+              </div>
             </form>
     );
     }
 });
-var Comment = createReactClass({
 
+/*
+ * Component for rendering each individual comment
+*/
+var Comment = createReactClass({
     render: function() {
         return (
             <div>
@@ -105,6 +112,9 @@ var Comment = createReactClass({
     }
 });
 
+/*
+ * Compoent for rendering replies to comments
+ */
 var ReplyBox = createReactClass({
     getInitialState: function() {
         return {
@@ -148,6 +158,9 @@ var ReplyBox = createReactClass({
     },
 
     render: function() {
+        /*
+         * Render list of replies and/or reply form depending on the component state
+         */
         if((this.state.reply && this.state.replyBox) || (!this.state.reply && !this.state.replyBox)) {
             return (
                 <div className="reply-form">
@@ -230,6 +243,9 @@ var ReplyBox = createReactClass({
     }
 });
 
+/*
+ * Component rendering the reply form
+ */
 var ReplyForm = createReactClass({
     handleSubmit: function(e) {
         e.preventDefault();
@@ -251,16 +267,19 @@ var ReplyForm = createReactClass({
         }
         return(
             <form onSubmit={this.handleSubmit}>
-            <input placeholder="Name" type="text"/>
-            <textarea placeholder="Join the discussion..."></textarea>
-            <div className="form-reply">
-            <But className="btn btn-primary" type="submit" value="Post"  style={style} >Reply</But>
-            </div>
+              <input placeholder="Name" type="text"/>
+              <textarea placeholder="Join the discussion..."></textarea>
+              <div className="form-reply">
+                <But className="btn btn-primary" type="submit" value="Post"  style={style} >Reply</But>
+              </div>
             </form>
     );
     }
 });
 
+/*
+ * Component rendering the list of replies
+ */
 var ReplyList = createReactClass({
     render: function() {
         return (
@@ -275,6 +294,9 @@ var ReplyList = createReactClass({
     }
 })
 
+/*
+ * Component rendering each individual reply
+ */
 var Reply = createReactClass({
     render: function() {
         return (
